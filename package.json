@@ -1,0 +1,19 @@
+{
+  "name": "@dxfom/dxf",
+  "version": "0.0.0",
+  "description": "Lossless low level DXF object model.",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": "dxfom/dxf",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
+  "scripts": {
+    "clean": "rimraf esm/",
+    "build": "npm run clean && tsc -p .",
+    "start": "npm run clean && tsc -p . -w"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.7.5"
+  }
+}
