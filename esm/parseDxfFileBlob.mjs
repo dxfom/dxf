@@ -21,17 +21,15 @@ const defaultEncodings = {
     ja: 'ms932',
 };
 export const parseDxfFileBlob = (dxfBlob, callback, options) => {
-    var _a;
-    const encoding = (_a = options) === null || _a === void 0 ? void 0 : _a.encoding;
+    const encoding = options?.encoding;
     const reader = new FileReader();
     reader.onload = function () {
-        var _a, _b, _c, _d, _e, _f;
         const dxfString = this.result;
         if (!encoding) {
             const header = parseDxfFileStringSingleSection(dxfString, 'HEADER');
-            const version = getGroupCodeValue((_a = header) === null || _a === void 0 ? void 0 : _a.$ACADVER, 1);
+            const version = getGroupCodeValue(header?.$ACADVER, 1);
             if (!version || version < 'AC1021') {
-                parseDxfFileBlob(dxfBlob, callback, { encoding: (_f = (_e = (_c = getGroupCodeValue((_b = header) === null || _b === void 0 ? void 0 : _b.$DWGCODEPAGE, 3), (_c !== null && _c !== void 0 ? _c : (_d = options) === null || _d === void 0 ? void 0 : _d.defaultEncoding)), (_e !== null && _e !== void 0 ? _e : defaultEncodings[navigator.language])), (_f !== null && _f !== void 0 ? _f : 'cp1252')) });
+                parseDxfFileBlob(dxfBlob, callback, { encoding: getGroupCodeValue(header?.$DWGCODEPAGE, 3) ?? options?.defaultEncoding ?? defaultEncodings[navigator.language] ?? 'cp1252' });
                 return;
             }
         }

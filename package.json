@@ -5,15 +5,16 @@
   "private": true,
   "license": "UNLICENSED",
   "repository": "dxfom/dxf",
-  "module": "esm/index.js",
+  "main": "esm/index.mjs",
+  "module": "esm/index.mjs",
   "types": "esm/index.d.ts",
   "scripts": {
     "clean": "rimraf esm/",
-    "build": "npm run clean && tsc -p .",
+    "build": "npm run clean && tsc -p . && node js2mjs.js",
     "start": "npm run clean && tsc -p . -w"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   }
 }
