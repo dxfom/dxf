@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Lossless low level DXF object model.",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "GPL-3.0",
   "repository": "dxfom/dxf",
   "main": "esm/index.mjs",
   "module": "esm/index.mjs",
