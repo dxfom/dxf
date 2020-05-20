@@ -1,10 +1,18 @@
 {
   "name": "@dxfom/dxf",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Lossless low level DXF object model.",
-  "private": true,
   "license": "GPL-3.0",
   "repository": "dxfom/dxf",
+  "keywords": [
+    "dxf"
+  ],
+  "files": [
+    "esm",
+    "src",
+    "bundle.d.ts",
+    "bundle.mjs"
+  ],
   "main": "bundle.mjs",
   "module": "esm/index.mjs",
   "types": "esm/index.d.ts",

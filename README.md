@@ -6,7 +6,7 @@ Lossless low level DXF object model.
 ## Installation
 
 ```bash
-$ npm i dxfom/dxf
+$ npm i @dxfom/dxf
 ```
 
 
