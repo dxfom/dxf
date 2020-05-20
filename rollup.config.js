@@ -6,7 +6,7 @@ export default {
   input: 'esm/index.mjs',
   output: {
     format: 'es',
-    file: 'index.mjs',
+    file: 'bundle.mjs',
   },
   plugins: [
     filesize({ showBrotliSize: true }),

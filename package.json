@@ -5,12 +5,12 @@
   "private": true,
   "license": "GPL-3.0",
   "repository": "dxfom/dxf",
-  "main": "esm/index.mjs",
+  "main": "bundle.mjs",
   "module": "esm/index.mjs",
   "types": "esm/index.d.ts",
   "scripts": {
-    "clean": "rimraf esm/ index.d.ts index.mjs",
-    "build": "npm run clean && tsc -p . && node js2mjs.js && rollup -c && dts-bundle-generator --no-banner -o index.d.ts esm/index.d.ts"
+    "clean": "rimraf esm/ bundle.d.ts bundle.mjs",
+    "build": "npm run clean && tsc -p . && node js2mjs.js && rollup -c && dts-bundle-generator --no-banner -o bundle.d.ts esm/index.d.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
