@@ -27,27 +27,20 @@ const defaultEncodings: Record<string, string | undefined> = {
   ja: 'ms932',
 }
 
-export const parseDxfFileBlob = (
-  dxfBlob: Blob,
-  callback: (error: DOMException | undefined, dxf: Dxf | undefined) => void,
-  options?: { readonly encoding?: string, readonly defaultEncoding?: string },
-) => {
+export const parseDxfFileArrayBuffer = (
+  dxfArrayBuffer: ArrayBuffer,
+  options?: { readonly encoding?: string },
+): Dxf => {
   const encoding = options?.encoding
-  const reader = new FileReader()
-  reader.onload = function () {
-    const dxfString = this.result as string
-    if (!encoding) {
-      const header = parseDxfFileStringSingleSection(dxfString, 'HEADER')
-      const version = getGroupCodeValue(header?.$ACADVER, 1)
-      if (!version || version < 'AC1021') {
-        parseDxfFileBlob(dxfBlob, callback, { encoding: getGroupCodeValue(header?.$DWGCODEPAGE, 3) ?? options?.defaultEncoding ?? defaultEncodings[navigator.language] ?? 'cp1252' })
-        return
-      }
+  const decoder = new TextDecoder(encoding ? codePageToEncoding(encoding) : undefined)
+  const dxfString = decoder.decode(dxfArrayBuffer)
+  if (!encoding) {
+    const header = parseDxfFileStringSingleSection(dxfString, 'HEADER')
+    const version = getGroupCodeValue(header?.$ACADVER, 1)
+    if (!version || version < 'AC1021') {
+      const encoding = getGroupCodeValue(header?.$DWGCODEPAGE, 3) ?? defaultEncodings[navigator.language] ?? 'cp1252'
+      return parseDxfFileArrayBuffer(dxfArrayBuffer, { encoding })
     }
-    callback(undefined, parseDxfFileString(dxfString))
   }
-  reader.onerror = function () {
-    callback(this.error || undefined, undefined)
-  }
-  reader.readAsText(dxfBlob, encoding && codePageToEncoding(encoding))
+  return parseDxfFileString(dxfString)
 }

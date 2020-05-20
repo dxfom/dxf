@@ -1,5 +1,5 @@
 export * from './Dxf';
-export { parseDxfFileBlob } from './parseDxfFileBlob';
+export { parseDxfFileArrayBuffer } from './parseDxfFileArrayBuffer';
 export { parseDxfFileString } from './parseDxfFileString';
 export { createDxfFileString } from './createDxfFileString';
 export { getGroupCodeValue } from './getGroupCodeValue';
