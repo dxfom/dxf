@@ -18,7 +18,7 @@ const dxfSectionHandler = (name: string, groupCodes: DxfRecord): any => {
     }
 
     case 'HEADER': {
-      const result: NonNullable<Dxf[typeof name]> = createObject()
+      const result = createObject() as NonNullable<Dxf[typeof name]>
       let currentRecord: NonNullable<typeof result['']> = []
       for (const groupCode of groupCodes) {
         if (groupCode[0] === 9) {
@@ -31,7 +31,7 @@ const dxfSectionHandler = (name: string, groupCodes: DxfRecord): any => {
     }
 
     case 'CLASSES': {
-      const result: NonNullable<Dxf[typeof name]> = createObject()
+      const result = createObject() as NonNullable<Dxf[typeof name]>
       let currentRecord: NonNullable<typeof result['']> = []
       for (const groupCode of groupCodes) {
         if (groupCode[0] === 0) {
@@ -46,7 +46,7 @@ const dxfSectionHandler = (name: string, groupCodes: DxfRecord): any => {
     }
 
     case 'TABLES': {
-      const result: NonNullable<Dxf[typeof name]> = createObject()
+      const result = createObject() as NonNullable<Dxf[typeof name]>
       let currentTable: DxfRecord[] = []
       let currentRecord: DxfRecord = []
       for (const groupCode of groupCodes) {
@@ -68,7 +68,7 @@ const dxfSectionHandler = (name: string, groupCodes: DxfRecord): any => {
     }
 
     case 'BLOCKS': {
-      const result: NonNullable<Dxf[typeof name]> = createObject()
+      const result = createObject() as NonNullable<Dxf[typeof name]>
       let currentBlock: DxfRecord[] = []
       let currentRecord: DxfRecord = []
       for (const groupCode of groupCodes) {
@@ -124,7 +124,7 @@ function splitDxfFileStringIntoDxfCodeValuePairs(dxfString: string) {
   const size = Math.floor(lines.length / 2)
   const codes: DxfRecord = Array(size)
   for (let i = 0; i < size; i++) {
-    codes[i] = [parseInt(lines[i + i], 10), lines[i + i + 1]]
+    codes[i] = [parseInt(lines[i + i]!, 10), lines[i + i + 1]!]
   }
   return codes
 }
@@ -135,11 +135,11 @@ function splitDxfFileStringIntoDxfCodeValuePairs(dxfString: string) {
 function splitDxfSections(codes: DxfRecord) {
   const sections: { name: string, startIndex: number, endIndex: number }[] = []
   for (let i = 1; i < codes.length; i++) {
-    if (codes[i - 1][0] === 0 && codes[i - 1][1] === 'SECTION' && codes[i][0] === 2) {
+    if (codes[i - 1]![0] === 0 && codes[i - 1]![1] === 'SECTION' && codes[i]![0] === 2) {
       const sectionNameIndex = i
-      while (++i < codes.length && (codes[i][0] !== 0 || codes[i][1] !== 'ENDSEC'));
+      while (++i < codes.length && (codes[i]![0] !== 0 || codes[i]![1] !== 'ENDSEC'));
       sections.push({
-        name: codes[sectionNameIndex][1],
+        name: codes[sectionNameIndex]![1],
         startIndex: sectionNameIndex + 1,
         endIndex: i,
       })

@@ -1,15 +1,15 @@
 export interface Dxf {
     HEADER?: {
-        [variableName in string]?: DxfRecord;
+        [variableName in string]: DxfRecord;
     };
     CLASSES?: {
-        [className in string]?: DxfRecord;
+        [className in string]: DxfRecord;
     };
     TABLES?: {
-        [tableName in string]?: DxfRecord[];
+        [tableName in string]: DxfRecord[];
     };
     BLOCKS?: {
-        [blockName in string]?: DxfRecord[];
+        [blockName in string]: DxfRecord[];
     };
     ENTITIES?: DxfRecord[];
     OBJECTS?: DxfRecord[];
@@ -17,16 +17,16 @@ export interface Dxf {
 }
 export interface DxfReadonly {
     readonly HEADER?: {
-        readonly [variableName in string]?: DxfRecordReadonly;
+        readonly [variableName in string]: DxfRecordReadonly;
     };
     readonly CLASSES?: {
-        readonly [className in string]?: DxfRecordReadonly;
+        readonly [className in string]: DxfRecordReadonly;
     };
     readonly TABLES?: {
-        readonly [tableName in string]?: readonly DxfRecordReadonly[];
+        readonly [tableName in string]: readonly DxfRecordReadonly[];
     };
     readonly BLOCKS?: {
-        readonly [blockName in string]?: readonly DxfRecordReadonly[];
+        readonly [blockName in string]: readonly DxfRecordReadonly[];
     };
     readonly ENTITIES?: readonly DxfRecordReadonly[];
     readonly OBJECTS?: readonly DxfRecordReadonly[];

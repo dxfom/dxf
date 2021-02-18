@@ -6,6 +6,7 @@
     "declaration": true,
     "removeComments": true,
     "strict": true,
+    "noUncheckedIndexedAccess": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

@@ -52,8 +52,7 @@ export const createDxfFileString = (dxf) => {
                 break;
             case 'TABLES':
                 for (const tableName in sectionContents) {
-                    const table = sectionContents[tableName];
-                    for (const record of table) {
+                    for (const record of sectionContents[tableName]) {
                         s = appendRecordString(s, record);
                     }
                     s += '0\nENDTAB\n';
