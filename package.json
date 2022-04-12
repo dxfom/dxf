@@ -21,14 +21,14 @@
     "build": "npm run clean && tsc -p . && node js2mjs.js && rollup -c && dts-bundle-generator --no-banner -o bundle.d.ts esm/index.d.ts"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.7",
+    "@babel/core": "^7.17.9",
     "@babel/preset-env": "^7.16.11",
-    "dts-bundle-generator": "^6.5.0",
+    "dts-bundle-generator": "^6.7.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.70.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-filesize": "^9.1.2",
     "rollup-plugin-terser": "^7.0.2",
-    "typescript": "^4.6.2"
+    "typescript": "^4.6.3"
   }
 }
