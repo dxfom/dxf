@@ -41,8 +41,8 @@ export declare type DxfRecordReadonly = readonly (readonly [
 	string
 ])[];
 export declare const parseDxfFileArrayBuffer: (dxfArrayBuffer: ArrayBuffer, options?: {
-	readonly encoding?: string | undefined;
-} | undefined) => Dxf;
+	readonly encoding?: string;
+}) => Dxf;
 export declare const parseDxfFileString: (dxfString: string) => Dxf;
 export declare const createDxfFileString: (dxf: DxfReadonly) => string;
 export declare const getGroupCodeValue: (record: DxfRecordReadonly | undefined, groupCode: number) => string | undefined;
