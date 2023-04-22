@@ -22,14 +22,9 @@
     "build": "npm run clean && tsc -p . && rollup -c && dts-bundle-generator --no-banner -o bundle.d.ts esm/index.d.ts"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.4",
-    "@babel/preset-env": "^7.21.4",
-    "@rollup/plugin-babel": "^6.0.3",
-    "@rollup/plugin-terser": "^0.4.1",
     "dts-bundle-generator": "^8.0.1",
     "rimraf": "^5.0.0",
     "rollup": "^3.20.7",
-    "rollup-plugin-filesize": "^10.0.0",
     "typescript": "^5.0.4"
   }
 }
