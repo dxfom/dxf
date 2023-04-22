@@ -14,7 +14,7 @@ $ npm i @dxfom/dxf
 
 ```javascript
 import fs from 'fs'
-import { parseDxfFileArrayBuffer } from '@dxfom/dxf/bundle.mjs'
+import { parseDxfFileArrayBuffer } from '@dxfom/dxf/bundle.js'
 
 const buffer = fs.readFileSync('my.dxf')
 const dxf = parseDxfFileArrayBuffer(buffer.buffer)

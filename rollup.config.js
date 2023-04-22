@@ -1,12 +1,12 @@
-import babel from 'rollup-plugin-babel'
-import { terser } from 'rollup-plugin-terser'
+import babel from '@rollup/plugin-babel'
+import terser from '@rollup/plugin-terser'
 import filesize from 'rollup-plugin-filesize'
 
 export default {
-  input: 'esm/index.mjs',
+  input: 'esm/index.js',
   output: {
     format: 'es',
-    file: 'bundle.mjs',
+    file: 'bundle.js',
   },
   plugins: [
     filesize({ showBrotliSize: true }),

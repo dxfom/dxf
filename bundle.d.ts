@@ -32,11 +32,11 @@ export interface DxfReadonly {
 	readonly OBJECTS?: readonly DxfRecordReadonly[];
 	readonly ACDSDATA?: readonly (readonly DxfRecordReadonly[])[];
 }
-export declare type DxfRecord = [
+export type DxfRecord = [
 	number,
 	string
 ][];
-export declare type DxfRecordReadonly = readonly (readonly [
+export type DxfRecordReadonly = readonly (readonly [
 	number,
 	string
 ])[];
