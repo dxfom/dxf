@@ -18,12 +18,11 @@
   "module": "esm/index.js",
   "types": "esm/index.d.ts",
   "scripts": {
-    "clean": "rimraf esm/ bundle.d.ts bundle.js",
+    "clean": "node -e \"['esm','bundle.d.ts','bundle.js'].forEach(s=>require('fs').rmSync(s,{force:true,recursive:true}))\"",
     "build": "npm run clean && tsc -p . && rollup -c && dts-bundle-generator --no-banner -o bundle.d.ts esm/index.d.ts"
   },
   "devDependencies": {
     "dts-bundle-generator": "^9.5.1",
-    "rimraf": "^6.0.1",
     "rollup": "^4.29.1",
     "typescript": "^5.7.2"
   }
