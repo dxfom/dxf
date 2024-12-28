@@ -22,9 +22,9 @@
     "build": "npm run clean && tsc -p . && rollup -c && dts-bundle-generator --no-banner -o bundle.d.ts esm/index.d.ts"
   },
   "devDependencies": {
-    "dts-bundle-generator": "^8.0.1",
-    "rimraf": "^5.0.0",
-    "rollup": "^3.20.7",
-    "typescript": "^5.0.4"
+    "dts-bundle-generator": "^9.5.1",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.29.1",
+    "typescript": "^5.7.2"
   }
 }
